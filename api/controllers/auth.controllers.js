@@ -1,7 +1,8 @@
 import User from "../Model/user.model.js";
 import bcrypt from 'bcrypt'
+import { errorHandler } from "../utils/error.js";
 
-export const signup = async(req,res)=>{
+export const signup = async(req,res,next)=>{
     try{
 
         const {username,password,email} = req.body;
@@ -11,6 +12,11 @@ export const signup = async(req,res)=>{
         res.status(201).send("user created successfully");
     }
     catch(error){
-        res.status(500).json(error.message);
+       
+        next(error);
+        
+        //next middle ware only takes one argument
+        // next(errorHandler(300,"i am the king of web development"));
+       
     }
 }
