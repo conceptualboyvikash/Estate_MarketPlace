@@ -21,5 +21,4 @@ const userSchema=mongoose.Schema({
 // timestamps ->for sorting the data using latest or ordest.
 const User=mongoose.model('User',userSchema);
 
-
 export default User;
