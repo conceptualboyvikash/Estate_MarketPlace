@@ -14,6 +14,9 @@ const userSlice = createSlice({
         signInStart: (state) => {
             state.loading = true;
         },
+        //ere state present intianl state object and action is parameter , you can pass you can pass only one parameter
+
+        //payload is keyword means the data yo passed.
         signInSuccess: (state, action) => {
             state.currentUser = action.payload;
             state.loading = false;
@@ -26,6 +29,8 @@ const userSlice = createSlice({
     }
 });
 
+// this reduceres funetion is used to change state.
 export const { signInStart, signInSuccess, signInFailure } = userSlice.actions;
 
+//this export is for store to acces this lsice 
 export default userSlice.reducer;

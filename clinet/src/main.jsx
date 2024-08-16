@@ -7,7 +7,9 @@ import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   
+    // here we are making a store  for redux
      <Provider store={store}>
+    
     <App/>
     </Provider>
   

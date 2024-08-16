@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+/*
+
+useDispatch: Sends actions to the Redux store to trigger state changes.
+useSelector: Retrieves specific pieces of state from the Redux store for use in your components.
+
+*/
 import { useDispatch, useSelector } from 'react-redux';
 import {
   signInStart,
@@ -14,7 +20,9 @@ export default function SignIn() {
   const { loading, error } = useSelector((state) => state.user);
 
 
- 
+  /*
+(state) => state.user is a selector function. It takes the entire Redux state as an argument and returns the user slice of the state. user slice contianin object having property loading and error. so here we dereference that.
+*/ 
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
