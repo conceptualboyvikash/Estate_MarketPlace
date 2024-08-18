@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGODB_URL).then(()=>{
 app.use('/api/user',userRouter);
 app.use('/api/auth',authRouter);
 app.use('/api/listing', listingRouter);
+let port=process.env.PORT || 4000;
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 //dist is a file name which is built after building app. and it will move those fronted router on this router.
@@ -43,6 +44,6 @@ app.use((err, req, res, next) => {
     const statusCode=err.statusCode || 500;
     return res.status(statusCode).json({success:false,statusCode,message});
 })
-app.listen(3000,()=>{
-    console.log('Server is running on port 3000');
+app.listen(port,()=>{
+    console.log(`Server is running on ${port}`);
 });
