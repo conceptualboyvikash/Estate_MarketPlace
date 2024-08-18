@@ -26,7 +26,7 @@ app.use('/api/auth',authRouter);
 app.use('/api/listing', listingRouter);
 let port=5178;
 
-app.use(express.static(path.join(__dirname, '/client/dist')));
+app.use(express.static(path.join(__dirname, '/client/dist/')));
 //dist is a file name which is built after building app. and it will move those fronted router on this router.
 /*
 like 
