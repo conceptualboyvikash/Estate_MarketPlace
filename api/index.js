@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URL).then(()=>{
 app.use('/api/user',userRouter);
 app.use('/api/auth',authRouter);
 app.use('/api/listing', listingRouter);
-let port=process.env.PORT || 4000;
+let port=5178;
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 //dist is a file name which is built after building app. and it will move those fronted router on this router.
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   });
 */
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'clinet', 'dist', 'index.html'));
 })
 app.use((err, req, res, next) => {
     

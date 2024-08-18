@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:5178',
         secure: false,
         //secure is false means without ssl verification we can proceed;
         //'/api means any route starts with /api will form to  http://localhost:3000/api//.. etc.
