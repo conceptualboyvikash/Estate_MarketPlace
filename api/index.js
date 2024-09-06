@@ -26,6 +26,16 @@ app.use('/api/user',userRouter);
 app.use('/api/auth',authRouter);
 app.use('/api/listing', listingRouter);
 
+app.use((err, req, res, next) => {
+  
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
 
 app.use(express.static(path.join(__dirname, '/client/dist/')));
 //dist is a file name which is built after building app. and it will move those fronted router on this router.
